@@ -18,3 +18,11 @@ body {
   display: flex;
   gap: 1rem;
 }
+.gameControl {
+  transition: all 0.15s linear;
+}
+.gameControl-disabled {
+  opacity: 50%;
+  pointer-events: none;
+  /* transition: all 2s linear; */
+}

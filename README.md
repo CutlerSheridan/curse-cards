@@ -6,7 +6,7 @@ Curse Cards
 
 #### TODO NEXT
 
-- make it so currentPlayer can go one higher than actually possible so all cards can be shown as seen; disable "next player" button when this is the case
+- enable Next Turn button after replacing card
 
 #### TODO LATER
 
@@ -18,17 +18,25 @@ Curse Cards
 - add skip button
 - add localStorage to store deck state, current hand, current player, numOfPlayers, if current phrase is revealed
 - add ability to reset deck
+- ? add ability to shuffle deck
 
 ##### Behavior
 
+- prevent new round from choosing the last cursed person again via shuffle
+
 ##### Style
 
-- add highlight to current card before seeing it
-- make seen cards darker or something each round
-- when revealing current phrase, make phrase card disappear and big card show back up and flip
 - add credit
 
 #### DONE
+
+_0.3.0_
+
+- make it so currentPlayer can go one higher than actually possible so all cards can be shown as seen; disable "next player" button when this is the case
+- grey out Next Turn button after clicking it or upon startup
+- add Draw Card button that makes small card disappear, makes big card appear, then makes big card flip over
+- add follow-up button when you're done looking at the card that makes big card flip back over, big card disappear, small card reappear, and re-enables Next Turn button
+- when big card is still revealed and new round is started, prevent big card from changing before the animation completes
 
 _0.2.0_
 

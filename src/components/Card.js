@@ -1,8 +1,8 @@
 import '../styles/Card.css';
 
 const Card = (props) => {
-  const { currentPlayer, cardIndex } = props;
-  const bigCardClass = props.isBig ? 'bigCard' : '';
+  const { currentPlayer, cardIndex, otherClasses } = props;
+  // const bigCardClass = props.isBig ? 'bigCard' : '';
   const isCardSeenClass = (() => {
     switch (true) {
       case cardIndex < currentPlayer:
@@ -15,9 +15,8 @@ const Card = (props) => {
     }
   })();
   return (
-    <div className={`card ${bigCardClass} ${isCardSeenClass}`}>
+    <div className={`card ${otherClasses} ${isCardSeenClass}`}>
       <div>{props.text}</div>
-      {console.log(isCardSeenClass)}
     </div>
   );
 };

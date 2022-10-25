@@ -1,19 +1,107 @@
 .card {
   width: 10rem;
   height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background: purple;
   border: 10px solid black;
   border-radius: 0.5rem;
   color: white;
 }
 .card-seen {
-  opacity: 60%;
+  background: darkblue;
 }
 .card-current:not(.bigCard) {
-  background: pink;
+  background: crimson;
+}
+
+.card-fadeOut {
+  animation: fade-out 0.15s linear forwards;
+}
+@keyframes fade-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.card-fadeIn {
+  animation: fade-in 0.15s linear forwards;
+}
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.card-flipOver {
+  animation: flip-over 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}
+@keyframes flip-over {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  74% {
+    background: purple;
+    color: purple;
+  }
+  75% {
+    transform: scaleX(0);
+    background: grey;
+    color: white;
+  }
+  100% {
+    transform: scaleX(1);
+    background: grey;
+    color: white;
+  }
+}
+.card-flipBack {
+  animation: flip-back 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}
+@keyframes flip-back {
+  0% {
+    transform: scaleX(1);
+    background: grey;
+    color: white;
+  }
+  24% {
+    background: grey;
+    color: white;
+  }
+  25% {
+    transform: scaleX(0);
+    background: purple;
+    color: purple;
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(1);
+    /* background: purple; */
+  }
 }
 
 .bigCard {
   width: 20rem;
   height: 30rem;
+  font-weight: bold;
+  font-style: italic;
+  color: purple;
+}
+.bigCard-hidden {
+  opacity: 0;
 }
