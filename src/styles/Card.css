@@ -6,3 +6,14 @@
   border-radius: 0.5rem;
   color: white;
 }
+.card-seen {
+  opacity: 60%;
+}
+.card-current:not(.bigCard) {
+  background: pink;
+}
+
+.bigCard {
+  width: 20rem;
+  height: 30rem;
+}

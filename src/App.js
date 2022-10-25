@@ -23,7 +23,7 @@ const App = () => {
     }
   }, [deck]);
 
-  const drawHand = () => {
+  const newRound = () => {
     let hand = [deck[0]];
     for (let i = 1; i < numOfPlayers; i++) {
       hand.push('safe');
@@ -31,6 +31,15 @@ const App = () => {
     hand = shuffleArray(hand);
     setCurrentHand(hand);
     setDeck((deck) => deck.slice(1));
+    setCurrentPlayer(0);
+  };
+  const advanceToNextPlayer = () => {
+    setCurrentPlayer((prev) => {
+      if (prev + 1 < numOfPlayers) {
+        return prev + 1;
+      }
+      return 0;
+    });
   };
   const shuffleArray = (arr) => {
     const arrCopy = [...arr];
@@ -45,12 +54,21 @@ const App = () => {
   return (
     <div className="App">
       <h1>Curse Cards</h1>
+      <Card text={currentHand[currentPlayer]} isBig={true}></Card>
       <div className="hand-container">
-        {currentHand.map((x) => (
-          <Card text={x}></Card>
+        {currentHand.map((x, index) => (
+          <Card
+            text={x}
+            currentPlayer={currentPlayer}
+            cardIndex={index}
+            key={`card-${index}`}
+          ></Card>
         ))}
       </div>
-      <button onClick={drawHand}>New Round</button>
+      <button onClick={newRound}>New Round</button>
+      <button onClick={advanceToNextPlayer}>Next player</button>
+      <div>CURRENT PLAYER</div>
+      <div>{currentPlayer}</div>
       <div>CURRENT HAND:</div>
       {currentHand.map((x) => (
         <div>{x}</div>
