@@ -59,6 +59,14 @@ const App = () => {
         hand.push('safe');
       }
       hand = shuffleArray(hand);
+      const prevHand = [...currentHand];
+      while (
+        prevHand.findIndex((x) => x !== 'safe') ===
+          hand.findIndex((x) => x !== 'safe') &&
+        prevHand[0] !== ''
+      ) {
+        hand = shuffleArray(hand);
+      }
       setCurrentHand(hand);
       setDeck((deck) => deck.slice(1));
       setCurrentPlayer(0);
@@ -142,6 +150,7 @@ const App = () => {
                 document
                   .querySelector('.gameControl-draw')
                   .classList.remove('gameControl-disabled');
+                setIsNextTurnButtonAvail(true);
               },
               { once: true }
             );

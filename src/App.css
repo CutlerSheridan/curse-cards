@@ -19,7 +19,7 @@ body {
   gap: 1rem;
 }
 .gameControl {
-  transition: all 0.15s linear;
+  transition: all 0.1s linear;
 }
 .gameControl-disabled {
   opacity: 50%;

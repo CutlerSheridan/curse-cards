@@ -6,29 +6,34 @@ Curse Cards
 
 #### TODO NEXT
 
-- enable Next Turn button after replacing card
+- try making small card slide up while fading and big card slide in
+- style it up a bit
 
 #### TODO LATER
 
 ##### Features
 
-- upon a player's turn starting, disable the ability to go to the next player's turn until current player has seen their card; maybe use same button
-- add ability to finish turn and set up next turn via button
-- add reveal current phrase button
+- add reveal current phrase button at end of round
 - add skip button
 - add localStorage to store deck state, current hand, current player, numOfPlayers, if current phrase is revealed
 - add ability to reset deck
 - ? add ability to shuffle deck
+- ? add timer
 
 ##### Behavior
 
-- prevent new round from choosing the last cursed person again via shuffle
+- merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
 
 ##### Style
 
 - add credit
 
 #### DONE
+
+_0.3.1_
+
+- upon a player's turn starting, enable Next Turn button only after drawing and replacing card
+- prevent new round from choosing the last cursed person again via shuffle
 
 _0.3.0_
 
