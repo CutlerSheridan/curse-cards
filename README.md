@@ -1,4 +1,4 @@
-Curse Cards
+# Curse Cards
 
 ## [PROJECT LOGLINE]
 
@@ -6,7 +6,6 @@ Curse Cards
 
 #### TODO NEXT
 
-- try making small card slide up while fading and big card slide in
 - style it up a bit
 
 #### TODO LATER
@@ -14,14 +13,17 @@ Curse Cards
 ##### Features
 
 - add reveal current phrase button at end of round
+- add ability to change number of players
 - add skip button
 - add localStorage to store deck state, current hand, current player, numOfPlayers, if current phrase is revealed
 - add ability to reset deck
+- ? add player names
 - ? add ability to shuffle deck
 - ? add timer
 
 ##### Behavior
 
+- change "new round" button to say "end round" unless currentPlayer === numOfPlayers + 1
 - merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
 
 ##### Style
@@ -29,6 +31,12 @@ Curse Cards
 - add credit
 
 #### DONE
+
+_0.3.2_
+
+- make cards slide up and down as they fade in and out
+  - fix so flipOver animation still works...
+  - the specifiers on the .card-fadeIn and -fadeOut classes was making the attributes more specific than the basic .card-flipOver / -flipBack; adding .bigCard.card-flipOver fixed the problem
 
 _0.3.1_
 

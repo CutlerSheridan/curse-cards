@@ -17,8 +17,24 @@
   background: crimson;
 }
 
-.card-fadeOut {
-  animation: fade-out 0.15s linear forwards;
+.bigCard {
+  width: 20rem;
+  height: 30rem;
+  font-weight: bold;
+  font-style: italic;
+  color: purple;
+}
+.bigCard-hidden {
+  opacity: 0;
+}
+
+/* ANIMATIONS */
+
+.card-fadeOut:not(.bigCard) {
+  animation: fade-out 0.15s linear forwards, slide-up 0.15s linear;
+}
+.card-fadeOut.bigCard {
+  animation: fade-out 0.15s linear, slide-down 0.15s linear;
 }
 @keyframes fade-out {
   0% {
@@ -30,8 +46,21 @@
     opacity: 0;
   }
 }
-.card-fadeIn {
-  animation: fade-in 0.15s linear forwards;
+@keyframes slide-up {
+  100% {
+    translate: 0 -2rem;
+  }
+}
+@keyframes slide-down {
+  100% {
+    translate: 0 2rem;
+  }
+}
+.card-fadeIn.bigCard {
+  animation: fade-in 0.15s linear, slide-from-down 0.15s linear;
+}
+.card-fadeIn:not(.bigCard) {
+  animation: fade-in 0.15s linear, slide-from-up 0.15s linear;
 }
 @keyframes fade-in {
   0% {
@@ -43,13 +72,20 @@
     opacity: 1;
   }
 }
-.card-flipOver {
+@keyframes slide-from-down {
+  0% {
+    translate: 0 2rem;
+  }
+}
+@keyframes slide-from-up {
+  0% {
+    translate: 0 -2rem;
+  }
+}
+.bigCard.card-flipOver {
   animation: flip-over 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
 }
 @keyframes flip-over {
-  0% {
-    transform: scaleX(1);
-  }
   50% {
     transform: scaleX(1);
   }
@@ -68,8 +104,8 @@
     color: white;
   }
 }
-.card-flipBack {
-  animation: flip-back 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+.bigCard.card-flipBack {
+  animation: flip-back 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 @keyframes flip-back {
   0% {
@@ -91,17 +127,5 @@
   }
   100% {
     transform: scaleX(1);
-    /* background: purple; */
   }
-}
-
-.bigCard {
-  width: 20rem;
-  height: 30rem;
-  font-weight: bold;
-  font-style: italic;
-  color: purple;
-}
-.bigCard-hidden {
-  opacity: 0;
 }

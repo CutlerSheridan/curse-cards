@@ -174,7 +174,10 @@ const App = () => {
       <button className="gameControl gameControl-draw" onClick={drawCard}>
         Draw
       </button>
-      <button className="gameControl gameControl-replace" onClick={replaceCard}>
+      <button
+        className="gameControl gameControl-replace gameControl-disabled"
+        onClick={replaceCard}
+      >
         Put back
       </button>
       <BigCard text={bigCardText}></BigCard>
