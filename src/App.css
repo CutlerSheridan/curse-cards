@@ -2,13 +2,13 @@
   font-family: 'Luminari';
   src: url('/src/styles/Luminari-Regular.ttf') format('truetype');
 }
-
 :root {
   --clr-1: rgb(49, 0, 84);
   --clr-1-light: rgb(88, 0, 150);
   --clr-2: rgb(22, 22, 22);
   --clr-2-dark: black;
-  --clr-3: rgb(187, 17, 51);
+  --clr-2-light: rgb(55, 55, 55);
+  --clr-3: rgb(167, 14, 45);
   --clr-4: rgb(133, 110, 146);
   --clr-5: white;
   font-size: 62.5%;
@@ -29,6 +29,7 @@ body {
   width: 100%;
   font-size: 2rem;
 }
+
 .content-container {
   margin: 2rem 1rem;
   min-height: 100vh;
@@ -37,7 +38,12 @@ body {
   align-items: center;
 }
 h1 {
+  font-family: 'Luminari';
   font-size: 5rem;
+  /* text-transform: uppercase; */
+}
+.currentPlayer {
+  font-family: 'Fondamento';
 }
 .controls-container {
   margin-top: 1rem;
@@ -46,22 +52,43 @@ h1 {
   position: relative;
 }
 .gameControl {
+  width: 15rem;
+  height: 5rem;
+  border: none;
+  border-radius: 1rem;
+  font-family: 'Fondamento', 'Luminari', Papyrus, 'Brush Script MT', cursive;
+  font-size: 2rem;
+  /* background: var(--clr-2); */
+  background: rgb(98, 9, 27);
+  color: var(--clr-5);
+  cursor: pointer;
   transition: all 0.1s linear;
 }
 .gameControl-draw {
   position: absolute;
   top: calc(50% - 4rem);
-  left: 25%;
+  left: 20%;
   height: 8rem;
-  width: 50%;
-  border: none;
-  border-radius: 1rem;
-  font-family: 'Luminari', Papyrus, 'Brush Script MT', cursive;
-  color: var(--clr-2-dark);
+  width: 60%;
+  font-size: 3rem;
+}
+.gameControl-draw:active {
+  background: var(--clr-2-dark);
+}
+@media (hover: hover) {
+  .gameControl-draw:hover {
+    background: var(--clr-2-dark);
+  }
+  .gameControl-draw:active {
+    background: var(--clr-2);
+  }
 }
 .gameControl-disabled {
   opacity: 50%;
   pointer-events: none;
+}
+.gameControl-disabled.gameControl-draw {
+  opacity: 0;
 }
 .hand-container {
   width: 100%;

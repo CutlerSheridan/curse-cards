@@ -4,7 +4,12 @@ import Card from './components/Card';
 import BigCard from './components/BigCard';
 
 const App = () => {
-  const phrases = ['in my opinion', 'creative differences', 'blood moon'];
+  const phrases = [
+    "Frankenstein's monster",
+    'in my opinion',
+    'creative differences',
+    'blood moon',
+  ];
   const [deck, setDeck] = useState(phrases);
   const [numOfPlayers, setNumOfPlayers] = useState(5);
   const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -190,7 +195,7 @@ const App = () => {
   return (
     <div className="content-container">
       <h1>Curse Cards</h1>
-      <div>{nameText}</div>
+      <div className="currentPlayer">{nameText}</div>
       <div className="controls-container">
         <button
           className="gameControl gameControl-replace gameControl-disabled"
@@ -201,7 +206,7 @@ const App = () => {
       </div>
       <div className="gameCenter-container">
         <button className="gameControl gameControl-draw" onClick={drawCard}>
-          DRAW
+          Draw
         </button>
         <BigCard text={bigCardText}></BigCard>
       </div>
@@ -216,7 +221,9 @@ const App = () => {
         ))}
       </div>
       <div className="controls-container">
-        <button onClick={startNewRound}>New Round</button>
+        <button className="gameControl" onClick={startNewRound}>
+          New Round
+        </button>
         <button
           className="gameControl gameControl-nextTurn"
           onClick={advanceToNextPlayer}

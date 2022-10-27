@@ -19,24 +19,28 @@
   }
 }
 .card-seen {
-  /* background: var(--clr-1-light); */
   box-shadow: inset 0 0 0 1000px rgb(0, 0, 0, 0.3);
 }
 .card-current {
-  box-shadow: 0 0 1rem 0.3rem var(--clr-3);
+  box-shadow: 0 0 1.2rem 0.3rem var(--clr-2-dark);
 }
 .card-current.bigCard {
-  box-shadow: 0 0 2rem 0.5rem var(--clr-3);
+  box-shadow: 0 0 2rem 0.5rem var(--clr-2-dark);
 }
 
 .bigCard {
   margin: 2rem;
   width: 20rem;
   height: 30rem;
+  font-family: 'Aladin';
+  font-size: 4rem;
   font-weight: bold;
-  font-style: italic;
-  color: var(--clr-1);
+  text-transform: capitalize;
+  color: transparent;
   border-width: 17px;
+}
+.bigCard-smallerText {
+  font-size: 2.5rem;
 }
 .bigCard-hidden {
   visibility: hidden;
@@ -106,17 +110,22 @@
   }
   74% {
     background: var(--clr-1);
-    color: var(--clr-1);
+    color: transparent;
+    text-decoration: none;
   }
   75% {
     transform: scaleX(0);
-    background: var(--clr-4);
+    background: var(--clr-3);
     color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
   }
   100% {
     transform: scaleX(1);
-    background: var(--clr-4);
+    background: var(--clr-3);
     color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
   }
 }
 .bigCard.card-flipBack {
@@ -125,17 +134,22 @@
 @keyframes flip-back {
   0% {
     transform: scaleX(1);
-    background: var(--clr-4);
+    background: var(--clr-3);
     color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
   }
   24% {
-    background: var(--clr-4);
+    background: var(--clr-3);
     color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
   }
   25% {
     transform: scaleX(0);
     background: var(--clr-1);
-    color: var(--clr-1);
+    color: transparent;
+    text-decoration: none;
   }
   50% {
     transform: scaleX(1);
