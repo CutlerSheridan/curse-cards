@@ -6,8 +6,15 @@ import BigCard from './components/BigCard';
 const App = () => {
   const phrases = ['in my opinion', 'creative differences', 'blood moon'];
   const [deck, setDeck] = useState(phrases);
-  const [numOfPlayers, setNumOfPlayers] = useState(5);
+  const [numOfPlayers, setNumOfPlayers] = useState(2);
   const [currentPlayer, setCurrentPlayer] = useState(0);
+  const [playerNames, setPlayerNames] = useState(() => {
+    const names = [];
+    for (let i = 0; i < numOfPlayers; i++) {
+      names.push(`Player ${i + 1}`);
+    }
+    return names;
+  });
   const [currentHand, setCurrentHand] = useState(() => {
     const hand = [];
     for (let i = 0; i < numOfPlayers; i++) {
@@ -37,6 +44,16 @@ const App = () => {
       nextTurnButton.classList.add('gameControl-disabled');
     }
   }, [isNextTurnButtonAvail]);
+  useEffect(() => {
+    const namesCopy = [...playerNames];
+    while (namesCopy.length > numOfPlayers) {
+      namesCopy.pop();
+    }
+    while (namesCopy.length < numOfPlayers) {
+      namesCopy.push(`Player ${namesCopy.length + 1}`);
+    }
+    setPlayerNames(namesCopy);
+  }, [numOfPlayers]);
 
   const startNewRound = () => {
     const bigCardElement = document.querySelector('.bigCard');
@@ -165,21 +182,26 @@ const App = () => {
     currentPlayer < numOfPlayers
       ? currentHand[currentPlayer]
       : currentHand.find((x) => x !== 'safe');
+  const nameText =
+    currentPlayer < playerNames.length
+      ? `${playerNames[currentPlayer]}'s turn`
+      : 'Final stage';
 
   return (
-    <div className="App">
+    <div className="content-container">
       <h1>Curse Cards</h1>
-      <div>CURRENT PLAYER</div>
-      <div>{currentPlayer}</div>
-      <button className="gameControl gameControl-draw" onClick={drawCard}>
-        Draw
-      </button>
-      <button
-        className="gameControl gameControl-replace gameControl-disabled"
-        onClick={replaceCard}
-      >
-        Put back
-      </button>
+      <div>{nameText}</div>
+      <div className="controls-container">
+        <button className="gameControl gameControl-draw" onClick={drawCard}>
+          Draw
+        </button>
+        <button
+          className="gameControl gameControl-replace gameControl-disabled"
+          onClick={replaceCard}
+        >
+          Put back
+        </button>
+      </div>
       <BigCard text={bigCardText}></BigCard>
       <div className="hand-container">
         {currentHand.map((x, index) => (
@@ -191,22 +213,15 @@ const App = () => {
           ></Card>
         ))}
       </div>
-      <button onClick={startNewRound}>New Round</button>
-      <button
-        className="gameControl gameControl-nextTurn"
-        onClick={advanceToNextPlayer}
-      >
-        Next player
-      </button>
-      <div>CURRENT HAND:</div>
-      {currentHand.map((x) => (
-        <div>{x}</div>
-      ))}
-      <br></br>
-      <div>CURRENT DECK:</div>
-      {deck.map((x) => {
-        return <div>{x}</div>;
-      })}
+      <div className="controls-container">
+        <button onClick={startNewRound}>New Round</button>
+        <button
+          className="gameControl gameControl-nextTurn"
+          onClick={advanceToNextPlayer}
+        >
+          Next player
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,28 +1,40 @@
 .card {
-  width: 10rem;
-  height: 15rem;
+  width: 7rem;
+  height: 10.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: purple;
+  background: var(--clr-1);
   border: 10px solid black;
   border-radius: 0.5rem;
   color: white;
+  transition: background 0.3s;
+  transition: box-shadow 0.3s;
+}
+@media only screen and (min-width: 500px) {
+  .card {
+    width: 10rem;
+    height: 15rem;
+  }
 }
 .card-seen {
-  background: darkblue;
+  background: var(--clr-1-light);
 }
-.card-current:not(.bigCard) {
-  background: crimson;
+.card-current {
+  box-shadow: 0 0 1rem 0.3rem var(--clr-3);
+}
+.card-current.bigCard {
+  box-shadow: 0 0 2rem 0.5rem var(--clr-3);
 }
 
 .bigCard {
+  margin: 2rem;
   width: 20rem;
   height: 30rem;
   font-weight: bold;
   font-style: italic;
-  color: purple;
+  color: var(--clr-1);
 }
 .bigCard-hidden {
   opacity: 0;
@@ -90,8 +102,8 @@
     transform: scaleX(1);
   }
   74% {
-    background: purple;
-    color: purple;
+    background: var(--clr-1);
+    color: var(--clr-1);
   }
   75% {
     transform: scaleX(0);
@@ -119,8 +131,8 @@
   }
   25% {
     transform: scaleX(0);
-    background: purple;
-    color: purple;
+    background: var(--clr-1);
+    color: var(--clr-1);
   }
   50% {
     transform: scaleX(1);

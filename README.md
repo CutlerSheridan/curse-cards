@@ -6,7 +6,8 @@
 
 #### TODO NEXT
 
-- style it up a bit
+- style buttons
+- stop top menu bar on ios from being white
 
 #### TODO LATER
 
@@ -14,23 +15,32 @@
 
 - add reveal current phrase button at end of round
 - add ability to change number of players
-- add skip button
-- add localStorage to store deck state, current hand, current player, numOfPlayers, if current phrase is revealed
+- add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
 - add ability to reset deck
-- ? add player names
+- ? add ability to change player names
 - ? add ability to shuffle deck
 - ? add timer
 
 ##### Behavior
 
-- change "new round" button to say "end round" unless currentPlayer === numOfPlayers + 1
+- change Draw button to show behind the big card
+- maybe put Next Player button above the big card? Figure out where it should go
 - merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
+- change "new round" button to say "end round" unless currentPlayer === numOfPlayers + 1 (but then do I need a way to exit a round? Maybe not, could just refresh)
 
 ##### Style
 
+- find font/s
 - add credit
 
 #### DONE
+
+_0.3.3_
+
+- add box-shadow to current card, big and small
+- center everything, adjust various layout items
+- add radial gradient to background
+- fix player name indicator to display properly if at end of round
 
 _0.3.2_
 
