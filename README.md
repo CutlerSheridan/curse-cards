@@ -6,8 +6,11 @@
 
 #### TODO NEXT
 
-- style buttons
-- stop top menu bar on ios from being white
+- prevent small cards from saying the phrase
+- decide if box-shadow should be darker than card back
+- ? make box-shadow disappear once big card is flipped over
+- decide on style for card front
+- style Draw button
 
 #### TODO LATER
 
@@ -23,17 +26,25 @@
 
 ##### Behavior
 
-- change Draw button to show behind the big card
-- maybe put Next Player button above the big card? Figure out where it should go
 - merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
+- maybe put Next Player button above the big card? Figure out where it should go
 - change "new round" button to say "end round" unless currentPlayer === numOfPlayers + 1 (but then do I need a way to exit a round? Maybe not, could just refresh)
 
 ##### Style
 
+- style buttons
 - find font/s
+- adjust sizing, spacing, box-shadow spread for desktop vs mobile
 - add credit
 
 #### DONE
+
+_0.3.4_
+
+- stop top menu bar on ios from being white
+- make Draw button to show behind the big card
+- add font for Draw
+- change color of seen cards in hand
 
 _0.3.3_
 

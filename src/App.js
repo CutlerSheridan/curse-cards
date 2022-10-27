@@ -6,7 +6,7 @@ import BigCard from './components/BigCard';
 const App = () => {
   const phrases = ['in my opinion', 'creative differences', 'blood moon'];
   const [deck, setDeck] = useState(phrases);
-  const [numOfPlayers, setNumOfPlayers] = useState(2);
+  const [numOfPlayers, setNumOfPlayers] = useState(5);
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [playerNames, setPlayerNames] = useState(() => {
     const names = [];
@@ -192,9 +192,6 @@ const App = () => {
       <h1>Curse Cards</h1>
       <div>{nameText}</div>
       <div className="controls-container">
-        <button className="gameControl gameControl-draw" onClick={drawCard}>
-          Draw
-        </button>
         <button
           className="gameControl gameControl-replace gameControl-disabled"
           onClick={replaceCard}
@@ -202,7 +199,12 @@ const App = () => {
           Put back
         </button>
       </div>
-      <BigCard text={bigCardText}></BigCard>
+      <div className="gameCenter-container">
+        <button className="gameControl gameControl-draw" onClick={drawCard}>
+          DRAW
+        </button>
+        <BigCard text={bigCardText}></BigCard>
+      </div>
       <div className="hand-container">
         {currentHand.map((x, index) => (
           <Card

@@ -1,18 +1,21 @@
+@font-face {
+  font-family: 'Luminari';
+  src: url('/src/styles/Luminari-Regular.ttf') format('truetype');
+}
+
 :root {
   --clr-1: rgb(49, 0, 84);
   --clr-1-light: rgb(88, 0, 150);
   --clr-2: rgb(22, 22, 22);
   --clr-2-dark: black;
-  --clr-3: goldenrod;
+  --clr-3: rgb(187, 17, 51);
   --clr-4: rgb(133, 110, 146);
+  --clr-5: white;
   font-size: 62.5%;
-  background: radial-gradient(
-    var(--clr-4) 0%,
-    var(--clr-2) 75%,
-    var(--clr-2-dark) 100%
-  );
+  background: var(--clr-2-dark)
+    radial-gradient(var(--clr-4) 0%, var(--clr-2) 75%, var(--clr-2-dark) 100%);
   background-repeat: no-repeat;
-  color: white;
+  color: var(--clr-5);
 }
 * {
   margin: 0;
@@ -39,17 +42,30 @@ h1 {
 .controls-container {
   margin-top: 1rem;
 }
-
+.gameCenter-container {
+  position: relative;
+}
+.gameControl {
+  transition: all 0.1s linear;
+}
+.gameControl-draw {
+  position: absolute;
+  top: calc(50% - 4rem);
+  left: 25%;
+  height: 8rem;
+  width: 50%;
+  border: none;
+  border-radius: 1rem;
+  font-family: 'Luminari', Papyrus, 'Brush Script MT', cursive;
+  color: var(--clr-2-dark);
+}
+.gameControl-disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
 .hand-container {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-.gameControl {
-  transition: all 0.1s linear;
-}
-.gameControl-disabled {
-  opacity: 50%;
-  pointer-events: none;
 }
