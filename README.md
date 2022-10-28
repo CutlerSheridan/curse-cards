@@ -6,14 +6,17 @@
 
 #### TODO NEXT
 
-- if in final stage, change "draw" button to "reveal"
-- if in final stage, make revealed card go to next round
+- change card front color to light purple again and maybe make the box shadows red
+- decide if box-shadow should be darker than card back
+- ? make box-shadow disappear once big card is flipped over
+- decide on style for card front
+- make buttons react to touch
+- change cursor to pointer over current cards
 
 #### TODO LATER
 
 ##### Features
 
-- add reveal current phrase button at end of round
 - add ability to change number of players
 - add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
 - add ability to reset deck
@@ -23,15 +26,8 @@
 
 ##### Behavior
 
-- change "new round" button to say "end round" unless currentPlayer === numOfPlayers + 1 (but then do I need a way to exit a round? Maybe not, could just refresh)
-
 ##### Style
 
-- change card front color to light purple again and maybe make the box shadows red
-- decide if box-shadow should be darker than card back
-- ? make box-shadow disappear once big card is flipped over
-- decide on style for card front
-- style buttons
 - find font/s
 - test on iPad
 - adjust sizing, spacing, box-shadow spread for desktop vs mobile
@@ -39,10 +35,18 @@
 
 #### DONE
 
+_0.3.9_
+
+- if in final stage, change "draw" button to "reveal"
+- if in final stage, make revealed card go back down into hand upon tapping
+- disable drawing if hand is empty
+- make it so only current small card can be tapped to draw it
+
 _0.3.8_
 
 - merge 'next turn' and 'put back' into one button; enable after drawing
 - use big card as put back/next turn button
+- use small cards for draw, optionally
 
 _0.3.7_
 

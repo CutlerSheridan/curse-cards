@@ -29,7 +29,11 @@ const Card = (props) => {
   return (
     <div
       className={`card ${bigClasses} ${isCardSeenClass}`}
-      onClick={handleClick}
+      onClick={
+        props.text !== '' && (cardIndex === currentPlayer || bigClasses)
+          ? handleClick
+          : () => {}
+      }
     >
       {cardText}
     </div>
