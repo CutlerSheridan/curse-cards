@@ -149,45 +149,46 @@ const App = () => {
     const bigCardElement = document.querySelector('.bigCard');
     bigCardElement.classList.remove('card-flipOver');
     bigCardElement.classList.add('card-flipBack');
-    bigCardElement.addEventListener(
-      'animationend',
-      (e) => {
-        console.log('first trigger');
-        console.log(e);
-        bigCardElement.classList.remove('card-flipBack', 'card-fadeIn');
-        bigCardElement.classList.add('card-fadeOut');
-        bigCardElement.addEventListener('animationend', fadeBigCardOut, {
-          once: true,
-        });
-      },
-      { once: true }
-    );
+    bigCardElement.addEventListener('animationend', flipBigCardBack);
+  };
+  const flipBigCardBack = (e) => {
+    console.log('first trigger');
+    console.log(e);
+    const bigCardElement = e.target;
+    if (e.animationName === 'flip-back') {
+      console.log('gets into first if');
+      bigCardElement.removeEventListener('animationend', flipBigCardBack);
+      bigCardElement.classList.remove('card-flipBack', 'card-fadeIn');
+      bigCardElement.classList.add('card-fadeOut');
+      bigCardElement.addEventListener('animationend', fadeBigCardOut);
+    }
   };
   const fadeBigCardOut = (e) => {
+    console.log('second trigger');
+    console.log(e);
     const bigCardElement = e.target;
-    if (e.animationName !== 'fade-out') {
-      bigCardElement.addEventListener('animationend', fadeBigCardOut);
-      return;
+    if (e.animationName === 'fade-out') {
+      bigCardElement.removeEventListener('animationend', fadeBigCardOut);
+      const cardElements = Array.from(
+        document.querySelectorAll('.card:not(.bigCard)')
+      );
+      const smallCardElement = cardElements[currentPlayer];
+      bigCardElement.classList.remove('card-fadeOut');
+      bigCardElement.classList.add('bigCard-hidden');
+      smallCardElement.classList.remove('card-fadeOut');
+      smallCardElement.classList.add('card-fadeIn');
+      smallCardElement.addEventListener(
+        'animationend',
+        () => {
+          smallCardElement.classList.remove('card-fadeIn');
+          document
+            .querySelector('.gameControl-draw')
+            .classList.remove('gameControl-disabled');
+          setIsNextTurnButtonAvail(true);
+        },
+        { once: true }
+      );
     }
-    const cardElements = Array.from(
-      document.querySelectorAll('.card:not(.bigCard)')
-    );
-    const smallCardElement = cardElements[currentPlayer];
-    bigCardElement.classList.remove('card-fadeOut');
-    bigCardElement.classList.add('bigCard-hidden');
-    smallCardElement.classList.remove('card-fadeOut');
-    smallCardElement.classList.add('card-fadeIn');
-    smallCardElement.addEventListener(
-      'animationend',
-      () => {
-        smallCardElement.classList.remove('card-fadeIn');
-        document
-          .querySelector('.gameControl-draw')
-          .classList.remove('gameControl-disabled');
-        setIsNextTurnButtonAvail(true);
-      },
-      { once: true }
-    );
   };
   const bigCardText =
     currentPlayer < numOfPlayers

@@ -7,7 +7,7 @@
 #### TODO NEXT
 
 - merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
-- maybe put Next Player button above the big card? Figure out where it should go
+- maybe use big card as "next player" button? Figure out where it should go if not
 
 #### TODO LATER
 
@@ -27,6 +27,7 @@
 
 ##### Style
 
+- change card front color to light purple again and maybe make the box shadows red
 - decide if box-shadow should be darker than card back
 - ? make box-shadow disappear once big card is flipped over
 - decide on style for card front
@@ -36,6 +37,10 @@
 - add credit
 
 #### DONE
+
+_0.3.7_
+
+- actually fix the animations by refactoring the replaceCard() event listeners with callback functions, removing the {once: true}, and within each one listening to see if it's triggered by the correct event and, if it is, removing the listener and performing the actions
 
 _0.3.6_
 
