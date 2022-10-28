@@ -7,11 +7,9 @@
 #### TODO NEXT
 
 - change card front color to light purple again and maybe make the box shadows red
-- decide if box-shadow should be darker than card back
+- decide on box-shadow color
 - ? make box-shadow disappear once big card is flipped over
 - decide on style for card front
-- make buttons react to touch
-- change cursor to pointer over current cards
 
 #### TODO LATER
 
@@ -28,12 +26,22 @@
 
 ##### Style
 
+- should I add an image to the back of the card?
 - find font/s
 - test on iPad
 - adjust sizing, spacing, box-shadow spread for desktop vs mobile
 - add credit
 
 #### DONE
+
+_0.3.10_
+
+- change cursor to pointer over current cards
+- stop empty round from highlighting Player 1
+- make buttons react to touch
+- restructure big card instructions to add '-' elements ::before and ::after for decoration
+- fix New Round button so, when a big card is revealed, it replaces it and starts a new round instead of going to the next player's turn
+- fix draw button so it goes to next turn
 
 _0.3.9_
 

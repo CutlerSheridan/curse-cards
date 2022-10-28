@@ -7,9 +7,8 @@
   align-items: center;
   text-align: center;
   background: var(--clr-1);
-  border: 10px solid black;
+  border: 10px solid var(--clr-2-dark);
   border-radius: 0.5rem;
-  /* color: white; */
   transition: background 0.3s;
   transition: box-shadow 0.3s;
 }
@@ -24,9 +23,10 @@
 }
 .card-current {
   box-shadow: 0 0 1.2rem 0.3rem var(--clr-2-dark);
+  cursor: pointer;
 }
 .card-current.bigCard {
-  box-shadow: 0 0 2rem 0.5rem var(--clr-2-dark);
+  box-shadow: 0 0 1.7rem 0.4rem var(--clr-2-dark);
 }
 
 .bigCard {
@@ -37,8 +37,6 @@
   font-family: 'Aladin';
   font-size: 4rem;
   font-weight: bold;
-  text-transform: capitalize;
-  /* color: transparent; */
   border-width: 17px;
 }
 .bigCard-smallerText {
@@ -46,10 +44,28 @@
 }
 .bigCard-phrase {
   color: transparent;
+  text-transform: capitalize;
 }
-.bigCard-instructions {
-  font-size: 2rem;
+.bigCard-instructions-container {
+  position: relative;
+  margin-top: 0.6rem;
+  font-size: 1.6rem;
+  font-family: 'Fondamento';
   color: transparent;
+}
+.bigCard-instructions-container::before {
+  content: '-';
+  position: absolute;
+  top: 25%;
+  left: -1.8rem;
+  font-size: 2rem;
+}
+.bigCard-instructions-container::after {
+  content: '-';
+  position: absolute;
+  top: 25%;
+  right: -1.8rem;
+  font-size: 2rem;
 }
 .bigCard-hidden {
   visibility: hidden;
@@ -149,7 +165,7 @@
     text-decoration-color: var(--clr-2-dark);
   }
 }
-.card-flipOver .bigCard-instructions {
+.card-flipOver .bigCard-instructions-container {
   animation: instructions-forward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95)
     forwards;
 }
@@ -207,7 +223,7 @@
     text-decoration: none;
   }
 }
-.card-flipBack .bigCard-instructions {
+.card-flipBack .bigCard-instructions-container {
   animation: instructions-backward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95)
     forwards;
 }

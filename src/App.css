@@ -64,6 +64,17 @@ h1 {
   cursor: pointer;
   transition: all 0.1s linear;
 }
+.gameControl:active {
+  background: var(--clr-2);
+}
+@media (hover: hover) {
+  .gameControl:hover {
+    background: var(--clr-2-dark);
+  }
+  .gameControl:active {
+    background: var(--clr-2);
+  }
+}
 .gameControl-draw {
   position: absolute;
   top: calc(50% - 4rem);
@@ -71,17 +82,6 @@ h1 {
   height: 8rem;
   width: 60%;
   font-size: 3rem;
-}
-.gameControl-draw:active {
-  background: var(--clr-2-dark);
-}
-@media (hover: hover) {
-  .gameControl-draw:hover {
-    background: var(--clr-2-dark);
-  }
-  .gameControl-draw:active {
-    background: var(--clr-2);
-  }
 }
 .gameControl-disabled {
   opacity: 50%;

@@ -11,7 +11,7 @@ const App = () => {
     'blood moon',
   ];
   const [deck, setDeck] = useState(phrases);
-  const [numOfPlayers, setNumOfPlayers] = useState(2);
+  const [numOfPlayers, setNumOfPlayers] = useState(5);
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [playerNames, setPlayerNames] = useState(() => {
     const names = [];
@@ -27,6 +27,7 @@ const App = () => {
     }
     return hand;
   });
+  const [startingNewRound, setStartingNewRound] = useState(false);
 
   useEffect(() => {
     if (deck.length === 0) {
@@ -45,22 +46,27 @@ const App = () => {
     }
     setPlayerNames(namesCopy);
   }, [numOfPlayers]);
+  useEffect(() => {
+    if (startingNewRound) {
+      startNewRound();
+    }
+  }, [startingNewRound]);
 
   const startNewRound = () => {
     const bigCardElement = document.querySelector('.bigCard');
     if (bigCardElement.classList.contains('card-flipOver')) {
       replaceCard();
-      const cardElements = Array.from(
-        document.querySelectorAll('.card:not(.bigCard)')
-      );
-      const smallCardElement = cardElements[currentPlayer];
-      smallCardElement.addEventListener(
-        'animationend',
-        () => {
-          startNewRound();
-        },
-        { once: true }
-      );
+      // const cardElements = Array.from(
+      //   document.querySelectorAll('.card:not(.bigCard)')
+      // );
+      // const smallCardElement = cardElements[currentPlayer];
+      // smallCardElement.addEventListener(
+      //   'animationend',
+      //   () => {
+      //     startNewRound();
+      //   },
+      //   { once: true }
+      // );
     } else {
       let hand = [deck[0]];
       for (let i = 1; i < numOfPlayers; i++) {
@@ -78,6 +84,7 @@ const App = () => {
       setCurrentHand(hand);
       setDeck((deck) => deck.slice(1));
       setCurrentPlayer(0);
+      setStartingNewRound(false);
     }
   };
   const advanceToNextPlayer = () => {
@@ -170,7 +177,11 @@ const App = () => {
             .querySelector('.gameControl-draw')
             .classList.remove('gameControl-disabled');
           if (currentPlayer < numOfPlayers) {
-            advanceToNextPlayer();
+            if (!startingNewRound) {
+              advanceToNextPlayer();
+            } else {
+              startNewRound();
+            }
           }
         },
         { once: true }
@@ -214,7 +225,10 @@ const App = () => {
         ))}
       </div>
       <div className="controls-container">
-        <button className="gameControl" onClick={startNewRound}>
+        <button
+          className="gameControl"
+          onClick={() => setStartingNewRound(true)}
+        >
           New Round
         </button>
       </div>
