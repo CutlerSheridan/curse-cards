@@ -6,8 +6,6 @@
 
 #### TODO NEXT
 
-- add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
-
 #### TODO LATER
 
 ##### Features
@@ -27,6 +25,11 @@
 - add credit
 
 #### DONE
+
+_0.5.0_
+
+- adjust spacing of sub-heading elements
+- implement localStorage to store deck, numOfPlayers, currentHand, playerNames, and currentPlayer
 
 _0.4.0_
 

@@ -10,23 +10,39 @@ const App = () => {
     'creative differences',
     'blood moon',
   ];
-  const [deck, setDeck] = useState(phrases);
-  const [numOfPlayers, setNumOfPlayers] = useState(5);
-  const [currentPlayer, setCurrentPlayer] = useState(0);
-  const [playerNames, setPlayerNames] = useState(() => {
-    const names = [];
-    for (let i = 0; i < numOfPlayers; i++) {
-      names.push(`Player ${i + 1}`);
+  const useLocalStorage = (prop, defaultValue) => {
+    if (localStorage.getItem('storedStates')) {
+      const storedStates = JSON.parse(localStorage.getItem('storedStates'));
+      return storedStates[prop];
     }
-    return names;
-  });
-  const [currentHand, setCurrentHand] = useState(() => {
-    const hand = [];
-    for (let i = 0; i < numOfPlayers; i++) {
-      hand.push('');
-    }
-    return hand;
-  });
+    return defaultValue;
+  };
+  const [deck, setDeck] = useState(useLocalStorage('deck', phrases));
+
+  const [numOfPlayers, setNumOfPlayers] = useState(
+    useLocalStorage('numOfPlayers', 5)
+  );
+  const [currentPlayer, setCurrentPlayer] = useState(
+    useLocalStorage('currentPlayer', 0)
+  );
+  const [playerNames, setPlayerNames] = useState(
+    useLocalStorage('playerNames', () => {
+      const names = [];
+      for (let i = 0; i < numOfPlayers; i++) {
+        names.push(`Player ${i + 1}`);
+      }
+      return names;
+    })
+  );
+  const [currentHand, setCurrentHand] = useState(
+    useLocalStorage('currentHand', () => {
+      const hand = [];
+      for (let i = 0; i < numOfPlayers; i++) {
+        hand.push('');
+      }
+      return hand;
+    })
+  );
   const [startingNewRound, setStartingNewRound] = useState(false);
   const [isBigCardShowing, setIsBigCardShowing] = useState(false);
 
@@ -52,6 +68,18 @@ const App = () => {
       startNewRound();
     }
   }, [startingNewRound]);
+  useEffect(() => {
+    localStorage.setItem(
+      'storedStates',
+      JSON.stringify({
+        deck,
+        numOfPlayers,
+        currentPlayer,
+        playerNames,
+        currentHand,
+      })
+    );
+  }, [deck, numOfPlayers, currentPlayer, playerNames, currentHand]);
 
   const startNewRound = () => {
     const bigCardElement = document.querySelector('.bigCard');
@@ -266,6 +294,31 @@ const App = () => {
           New Round
         </button>
         <button className="gameControl gameControl-small">Show rules</button>
+        {/* <button
+          className="gameControl gameControl-small"
+          onClick={() =>
+            console.log(JSON.parse(localStorage.getItem('storedStates')))
+          }
+        >
+          Log storage
+        </button>
+        <button
+          className="gameControl gameControl-small"
+          onClick={() => localStorage.clear()}
+        >
+          Clear localStorage
+        </button>
+        <button
+          className="gameControl gameControl-small"
+          onClick={() => {
+            console.log(deck);
+            console.log('num of players' + numOfPlayers);
+            console.log(currentHand);
+            console.log(playerNames);
+          }}
+        >
+          log states
+        </button> */}
       </div>
     </div>
   );

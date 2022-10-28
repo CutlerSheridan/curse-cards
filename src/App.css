@@ -49,8 +49,8 @@ h1 {
   display: grid;
   grid-template-columns: 25% 50% 25%;
   justify-items: center;
-  align-items: center;
-  gap: 0.8rem;
+  align-items: flex-end;
+  gap: 0.5rem;
 }
 .playerCount-container {
   display: flex;
@@ -74,6 +74,11 @@ h1 {
   font-family: inherit;
 }
 .currentPlayer {
+  height: 7rem;
+  width: 17rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Fondamento';
   font-size: 3.3rem;
   line-height: 3.3rem;
@@ -95,6 +100,7 @@ h1 {
   }
   .currentPlayer {
     font-size: 4rem;
+    width: 19rem;
   }
 }
 @media only screen and (min-width: 750px) {
@@ -182,6 +188,5 @@ h1 {
 .gameControl-small {
   font-size: 1.4rem;
   width: 6rem;
-  /* height: 3.5rem; */
   transition: all 0.5s;
 }
