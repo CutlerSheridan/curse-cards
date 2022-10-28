@@ -1,6 +1,6 @@
 .card {
-  width: 7rem;
-  height: 10.5rem;
+  width: 6rem;
+  height: 9rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,10 +12,16 @@
   transition: background 0.3s;
   transition: box-shadow 0.3s;
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
   .card {
     width: 10rem;
     height: 15rem;
+  }
+}
+@media only screen and (min-width: 600px) and (min-height: 900px) {
+  .card {
+    width: 12rem;
+    height: 18rem;
   }
 }
 .card-seen {
@@ -30,7 +36,7 @@
 }
 
 .bigCard {
-  margin: 2rem;
+  margin: 0.6rem 0 1.6rem 0;
   padding: 1rem;
   width: 20rem;
   height: 30rem;
@@ -67,6 +73,37 @@
   right: -1.8rem;
   font-size: 2rem;
 }
+@media only screen and (min-width: 600px) {
+  .bigCard {
+    width: 24rem;
+    height: 36rem;
+    font-size: 5rem;
+  }
+  .bigCard-smallerText {
+    font-size: 3.6rem;
+  }
+  .bigCard-instructions-container {
+    font-size: 1.9rem;
+  }
+}
+@media only screen and (min-width: 600px) and (min-height: 900px) {
+  .bigCard {
+    width: 28rem;
+    height: 42rem;
+    font-size: 6rem;
+  }
+  .bigCard-smallerText {
+    font-size: 4.2rem;
+  }
+  .bigCard-instructions-container {
+    font-size: 2.1rem;
+  }
+}
+@media only screen and (min-height: 950px) {
+  .bigCard {
+    margin: 3rem 0 5rem 0;
+  }
+}
 .bigCard-hidden {
   visibility: hidden;
   opacity: 0;
@@ -78,7 +115,7 @@
   animation: fade-out 0.15s linear forwards, slide-up 0.15s linear;
 }
 .card-fadeOut.bigCard {
-  animation: fade-out 0.3s linear, slide-down 0.3s linear forwards;
+  animation: fade-out 0.15s linear, slide-down 0.3s linear forwards;
 }
 @keyframes fade-out {
   0% {
@@ -139,11 +176,11 @@
   }
   75% {
     transform: scaleX(0);
-    background: var(--clr-3);
+    background: var(--clr-4);
   }
   100% {
     transform: scaleX(1);
-    background: var(--clr-3);
+    background: var(--clr-4);
   }
 }
 .card-flipOver .bigCard-phrase {
@@ -157,12 +194,12 @@
   75% {
     color: white;
     text-decoration: underline;
-    text-decoration-color: var(--clr-2-dark);
+    text-decoration-color: var(--clr-2);
   }
   100% {
     color: white;
     text-decoration: underline;
-    text-decoration-color: var(--clr-2-dark);
+    text-decoration-color: var(--clr-2);
   }
 }
 .card-flipOver .bigCard-instructions-container {
@@ -188,10 +225,10 @@
 @keyframes flip-back {
   0% {
     transform: scaleX(1);
-    background: var(--clr-3);
+    background: var(--clr-4);
   }
   24% {
-    background: var(--clr-3);
+    background: var(--clr-4);
   }
   25% {
     transform: scaleX(0);

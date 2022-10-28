@@ -8,9 +8,10 @@
   --clr-2: rgb(22, 22, 22);
   --clr-2-dark: black;
   --clr-2-light: rgb(55, 55, 55);
-  --clr-3: rgb(167, 14, 45);
+  --clr-3: rgb(98, 9, 27);
+  --clr-3-dark: rgb(67, 6, 18);
   --clr-4: rgb(133, 110, 146);
-  --clr-5: white;
+  --clr-5: rgb(200, 200, 200);
   font-size: 62.5%;
   background: var(--clr-2-dark)
     radial-gradient(var(--clr-4) 0%, var(--clr-2) 75%, var(--clr-2-dark) 100%);
@@ -31,19 +32,32 @@ body {
 }
 
 .content-container {
-  margin: 2rem 1rem;
-  min-height: 100vh;
+  margin: 0rem 1rem;
+  min-height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 h1 {
   font-family: 'Luminari';
   font-size: 5rem;
-  /* text-transform: uppercase; */
 }
 .currentPlayer {
   font-family: 'Fondamento';
+  font-size: 2.6rem;
+}
+@media only screen and (min-width: 500px) {
+  .content-container {
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 8rem;
+    line-height: 8rem;
+  }
+  .currentPlayer {
+    font-size: 4rem;
+  }
 }
 .controls-container {
   margin-top: 1rem;
@@ -58,21 +72,29 @@ h1 {
   border-radius: 1rem;
   font-family: 'Fondamento', 'Luminari', Papyrus, 'Brush Script MT', cursive;
   font-size: 2rem;
-  /* background: var(--clr-2); */
-  background: rgb(98, 9, 27);
+  background: var(--clr-3);
+  box-shadow: 0rem 0.5rem 0.8rem 0.05rem var(--clr-2);
   color: var(--clr-5);
   cursor: pointer;
   transition: all 0.1s linear;
 }
+@media only screen and (min-width: 600px) {
+  .gameControl {
+    width: 17rem;
+    height: 6rem;
+    font-size: 2.4rem;
+  }
+}
 .gameControl:active {
-  background: var(--clr-2);
+  background: var(--clr-3-dark);
+  box-shadow: none;
 }
 @media (hover: hover) {
   .gameControl:hover {
-    background: var(--clr-2-dark);
+    background: var(--clr-3-dark);
   }
   .gameControl:active {
-    background: var(--clr-2);
+    background: var(--clr-3);
   }
 }
 .gameControl-draw {
@@ -91,8 +113,14 @@ h1 {
   opacity: 0;
 }
 .hand-container {
+  margin-bottom: 0.6rem;
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+@media only screen and (min-height: 900px) {
+  .hand-container {
+    margin-bottom: 2rem;
+  }
 }

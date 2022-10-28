@@ -6,17 +6,13 @@
 
 #### TODO NEXT
 
-- change card front color to light purple again and maybe make the box shadows red
-- decide on box-shadow color
-- ? make box-shadow disappear once big card is flipped over
-- decide on style for card front
+- add ability to change number of players
+- add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
 
 #### TODO LATER
 
 ##### Features
 
-- add ability to change number of players
-- add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
 - add ability to reset deck
 - ? add ability to change player names
 - ? add ability to shuffle deck
@@ -27,12 +23,16 @@
 ##### Style
 
 - should I add an image to the back of the card?
-- find font/s
-- test on iPad
-- adjust sizing, spacing, box-shadow spread for desktop vs mobile
 - add credit
 
 #### DONE
+
+_0.3.11_
+
+- change card front color to light purple
+- test on iPad
+- adjust sizing, spacing, box-shadow spread for desktop vs mobile
+- style buttons
 
 _0.3.10_
 
