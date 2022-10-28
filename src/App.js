@@ -28,6 +28,7 @@ const App = () => {
     return hand;
   });
   const [startingNewRound, setStartingNewRound] = useState(false);
+  const [isBigCardShowing, setIsBigCardShowing] = useState(false);
 
   useEffect(() => {
     if (deck.length === 0) {
@@ -56,36 +57,29 @@ const App = () => {
     const bigCardElement = document.querySelector('.bigCard');
     if (bigCardElement.classList.contains('card-flipOver')) {
       replaceCard();
-      // const cardElements = Array.from(
-      //   document.querySelectorAll('.card:not(.bigCard)')
-      // );
-      // const smallCardElement = cardElements[currentPlayer];
-      // smallCardElement.addEventListener(
-      //   'animationend',
-      //   () => {
-      //     startNewRound();
-      //   },
-      //   { once: true }
-      // );
     } else {
-      let hand = [deck[0]];
-      for (let i = 1; i < numOfPlayers; i++) {
-        hand.push('safe');
-      }
-      hand = shuffleArray(hand);
-      const prevHand = [...currentHand];
-      while (
-        prevHand.findIndex((x) => x !== 'safe') ===
-          hand.findIndex((x) => x !== 'safe') &&
-        prevHand[0] !== ''
-      ) {
-        hand = shuffleArray(hand);
-      }
+      const hand = shuffleHand();
       setCurrentHand(hand);
       setDeck((deck) => deck.slice(1));
       setCurrentPlayer(0);
       setStartingNewRound(false);
     }
+  };
+  const shuffleHand = () => {
+    let hand = [deck[0]];
+    for (let i = 1; i < numOfPlayers; i++) {
+      hand.push('safe');
+    }
+    hand = shuffleArray(hand);
+    const prevHand = [...currentHand];
+    while (
+      prevHand.findIndex((x) => x !== 'safe') ===
+        hand.findIndex((x) => x !== 'safe') &&
+      prevHand[0] !== ''
+    ) {
+      hand = shuffleArray(hand);
+    }
+    return hand;
   };
   const advanceToNextPlayer = () => {
     setCurrentPlayer((prev) => {
@@ -129,6 +123,7 @@ const App = () => {
           'animationend',
           () => {
             bigCardElement.classList.add('card-flipOver');
+            setIsBigCardShowing(true);
           },
           { once: true }
         );
@@ -176,6 +171,7 @@ const App = () => {
           document
             .querySelector('.gameControl-draw')
             .classList.remove('gameControl-disabled');
+          setIsBigCardShowing(false);
           if (currentPlayer < numOfPlayers) {
             if (!startingNewRound) {
               advanceToNextPlayer();
@@ -188,6 +184,12 @@ const App = () => {
       );
     }
   };
+  const resetRound = () => {
+    setCurrentPlayer(0);
+    const hand = shuffleHand();
+    setCurrentHand(hand);
+  };
+
   const bigCardText =
     currentPlayer < numOfPlayers
       ? currentHand[currentPlayer]
@@ -200,8 +202,32 @@ const App = () => {
   return (
     <div className="content-container">
       <h1>Curse Cards</h1>
-      <div className="currentPlayer">{nameText}</div>
-      <div className="controls-container"></div>
+      <div className="info-grid">
+        <div className="playerCount-container">
+          <div>Players:</div>
+          <div className="alterCount-container">
+            <div
+              className="gameControl alterCount-button"
+              onClick={() => {
+                setNumOfPlayers((prev) => prev - 1);
+              }}
+            >
+              {'<'}
+            </div>
+            <div className="alterCount-count">{numOfPlayers}</div>
+            <div
+              className="gameControl alterCount-button"
+              onClick={() => {
+                setNumOfPlayers((prev) => prev + 1);
+              }}
+            >
+              {'>'}
+            </div>
+          </div>
+        </div>
+        <div className="currentPlayer">{nameText}</div>
+        <button className="gameControl infoControl-names">Player names</button>
+      </div>
       <div className="gameCenter-container">
         <button
           className={`gameControl gameControl-draw ${
@@ -226,11 +252,20 @@ const App = () => {
       </div>
       <div className="controls-container">
         <button
+          className={`gameControl gameControl-small ${
+            isBigCardShowing ? 'gameControl-disabled' : ''
+          }`}
+          onClick={resetRound}
+        >
+          Reset Round
+        </button>
+        <button
           className="gameControl"
           onClick={() => setStartingNewRound(true)}
         >
           New Round
         </button>
+        <button className="gameControl gameControl-small">Show rules</button>
       </div>
     </div>
   );

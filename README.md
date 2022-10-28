@@ -6,26 +6,35 @@
 
 #### TODO NEXT
 
-- add ability to change number of players
 - add localStorage to store deck state, current hand, current player, numOfPlayers, playerNames
 
 #### TODO LATER
 
 ##### Features
 
-- add ability to reset deck
+- ? add ability to reset deck
 - ? add ability to change player names
 - ? add ability to shuffle deck
+- ? add pop-up rules
 - ? add timer
 
 ##### Behavior
 
 ##### Style
 
+- add sounds
 - should I add an image to the back of the card?
 - add credit
 
 #### DONE
+
+_0.4.0_
+
+- add Player count with in-/decrement buttons
+- make in-/decrement buttons works
+- add Player names button
+- add Reset Round button and make it work
+- add non-functioning Show Rules button
 
 _0.3.11_
 

@@ -43,9 +43,47 @@ h1 {
   font-family: 'Luminari';
   font-size: 5rem;
 }
+
+.info-grid {
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  justify-items: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+.playerCount-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.9rem;
+  font-family: 'Fondamento';
+  text-align: center;
+}
+.alterCount-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2.1rem;
+  font-family: 'Luminari';
+}
+.alterCount-container > .alterCount-button {
+  width: 2.5rem;
+  height: 3rem;
+  background: var(--clr-3);
+  border-radius: 0.5rem;
+  font-family: inherit;
+}
 .currentPlayer {
   font-family: 'Fondamento';
-  font-size: 2.6rem;
+  font-size: 3.3rem;
+  line-height: 3.3rem;
+  text-align: center;
+}
+.gameControl.infoControl-names {
+  margin-top: 0.5rem;
+  width: 8rem;
+  font-size: 1.6rem;
+  background: var(--clr-3);
 }
 @media only screen and (min-width: 500px) {
   .content-container {
@@ -59,9 +97,17 @@ h1 {
     font-size: 4rem;
   }
 }
-.controls-container {
-  margin-top: 1rem;
+@media only screen and (min-width: 750px) {
+  .info-grid {
+    width: 75rem;
+  }
+  .info-grid .infoControl-names {
+    width: 12rem;
+    height: 5rem;
+    font-size: 1.8rem;
+  }
 }
+
 .gameCenter-container {
   position: relative;
 }
@@ -77,6 +123,15 @@ h1 {
   color: var(--clr-5);
   cursor: pointer;
   transition: all 0.1s linear;
+  text-transform: capitalize;
+}
+.controls-container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.gameControl-small {
+  opacity: 75%;
 }
 @media only screen and (min-width: 600px) {
   .gameControl {
@@ -123,4 +178,10 @@ h1 {
   .hand-container {
     margin-bottom: 2rem;
   }
+}
+.gameControl-small {
+  font-size: 1.4rem;
+  width: 6rem;
+  /* height: 3.5rem; */
+  transition: all 0.5s;
 }
