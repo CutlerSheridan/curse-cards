@@ -1,7 +1,7 @@
 import '../styles/Card.css';
 
 const Card = (props) => {
-  const { currentPlayer, cardIndex, otherClasses } = props;
+  const { currentPlayer, cardIndex, bigClasses, handleClick } = props;
   // const bigCardClass = props.isBig ? 'bigCard' : '';
   const isCardSeenClass = (() => {
     switch (true) {
@@ -15,7 +15,7 @@ const Card = (props) => {
     }
   })();
   const cardText = (() => {
-    if (otherClasses) {
+    if (bigClasses) {
       return (
         <>
           <div className="bigCard-phrase">{props.text}</div>
@@ -27,7 +27,12 @@ const Card = (props) => {
   })();
 
   return (
-    <div className={`card ${otherClasses} ${isCardSeenClass}`}>{cardText}</div>
+    <div
+      className={`card ${bigClasses} ${isCardSeenClass}`}
+      onClick={handleClick}
+    >
+      {cardText}
+    </div>
   );
 };
 

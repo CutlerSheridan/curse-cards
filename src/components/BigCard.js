@@ -13,9 +13,10 @@ const BigCard = (props) => {
   return (
     <Card
       text={props.text}
-      otherClasses={`bigCard bigCard-hidden ${
+      bigClasses={`bigCard bigCard-hidden ${
         longestWord.length > 12 ? 'bigCard-smallerText' : ''
       }`}
+      handleClick={props.handleClick}
     ></Card>
   );
 };

@@ -6,8 +6,8 @@
 
 #### TODO NEXT
 
-- merge 'next turn' and 'put back' into one button; enable after drawing; make sure small card doesn't reappear before animation finishes
-- maybe use big card as "next player" button? Figure out where it should go if not
+- if in final stage, change "draw" button to "reveal"
+- if in final stage, make revealed card go to next round
 
 #### TODO LATER
 
@@ -33,10 +33,16 @@
 - decide on style for card front
 - style buttons
 - find font/s
+- test on iPad
 - adjust sizing, spacing, box-shadow spread for desktop vs mobile
 - add credit
 
 #### DONE
+
+_0.3.8_
+
+- merge 'next turn' and 'put back' into one button; enable after drawing
+- use big card as put back/next turn button
 
 _0.3.7_
 

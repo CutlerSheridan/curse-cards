@@ -41,14 +41,14 @@ const App = () => {
       setDeck(deckCopy);
     }
   }, [deck]);
-  useEffect(() => {
-    const nextTurnButton = document.querySelector('.gameControl-nextTurn');
-    if (isNextTurnButtonAvail) {
-      nextTurnButton.classList.remove('gameControl-disabled');
-    } else {
-      nextTurnButton.classList.add('gameControl-disabled');
-    }
-  }, [isNextTurnButtonAvail]);
+  // useEffect(() => {
+  //   const nextTurnButton = document.querySelector('.gameControl-nextTurn');
+  //   if (isNextTurnButtonAvail) {
+  //     nextTurnButton.classList.remove('gameControl-disabled');
+  //   } else {
+  //     nextTurnButton.classList.add('gameControl-disabled');
+  //   }
+  // }, [isNextTurnButtonAvail]);
   useEffect(() => {
     const namesCopy = [...playerNames];
     while (namesCopy.length > numOfPlayers) {
@@ -132,9 +132,9 @@ const App = () => {
           'animationend',
           () => {
             bigCardElement.classList.add('card-flipOver');
-            document
-              .querySelector('.gameControl-replace')
-              .classList.remove('gameControl-disabled');
+            // document
+            //   .querySelector('.gameControl-replace')
+            //   .classList.remove('gameControl-disabled');
           },
           { once: true }
         );
@@ -143,9 +143,9 @@ const App = () => {
     );
   };
   const replaceCard = () => {
-    document
-      .querySelector('.gameControl-replace')
-      .classList.add('gameControl-disabled');
+    // document
+    //   .querySelector('.gameControl-replace')
+    //   .classList.add('gameControl-disabled');
     const bigCardElement = document.querySelector('.bigCard');
     bigCardElement.classList.remove('card-flipOver');
     bigCardElement.classList.add('card-flipBack');
@@ -184,7 +184,8 @@ const App = () => {
           document
             .querySelector('.gameControl-draw')
             .classList.remove('gameControl-disabled');
-          setIsNextTurnButtonAvail(true);
+          advanceToNextPlayer();
+          // setIsNextTurnButtonAvail(true);
         },
         { once: true }
       );
@@ -204,18 +205,18 @@ const App = () => {
       <h1>Curse Cards</h1>
       <div className="currentPlayer">{nameText}</div>
       <div className="controls-container">
-        <button
+        {/* <button
           className="gameControl gameControl-replace gameControl-disabled"
           onClick={replaceCard}
         >
           Put back
-        </button>
+        </button> */}
       </div>
       <div className="gameCenter-container">
         <button className="gameControl gameControl-draw" onClick={drawCard}>
           Draw
         </button>
-        <BigCard text={bigCardText}></BigCard>
+        <BigCard handleClick={replaceCard} text={bigCardText}></BigCard>
       </div>
       <div className="hand-container">
         {currentHand.map((x, index) => (
@@ -223,6 +224,7 @@ const App = () => {
             text={x}
             currentPlayer={currentPlayer}
             cardIndex={index}
+            handleClick={drawCard}
             key={`card-${index}`}
           ></Card>
         ))}
@@ -231,12 +233,12 @@ const App = () => {
         <button className="gameControl" onClick={startNewRound}>
           New Round
         </button>
-        <button
+        {/* <button
           className="gameControl gameControl-nextTurn"
           onClick={advanceToNextPlayer}
         >
           Next player
-        </button>
+        </button> */}
       </div>
     </div>
   );
