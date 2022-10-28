@@ -37,6 +37,12 @@
 
 #### DONE
 
+_0.3.6_
+
+- get flip-back animation to trigger the fade-out animation on the big card
+  - this will be the death of me
+  - this was happening because the two animations I thought were simultaneous technically were not, so the animationend event listener was catching them each separately instead of catching the end of flip-back, like it was supposed to
+
 _0.3.5_
 
 - prevent small cards from saying the phrase

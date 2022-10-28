@@ -2,13 +2,14 @@
   width: 7rem;
   height: 10.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: var(--clr-1);
   border: 10px solid black;
   border-radius: 0.5rem;
-  color: white;
+  /* color: white; */
   transition: background 0.3s;
   transition: box-shadow 0.3s;
 }
@@ -30,17 +31,25 @@
 
 .bigCard {
   margin: 2rem;
+  padding: 1rem;
   width: 20rem;
   height: 30rem;
   font-family: 'Aladin';
   font-size: 4rem;
   font-weight: bold;
   text-transform: capitalize;
-  color: transparent;
+  /* color: transparent; */
   border-width: 17px;
 }
 .bigCard-smallerText {
   font-size: 2.5rem;
+}
+.bigCard-phrase {
+  color: transparent;
+}
+.bigCard-instructions {
+  font-size: 2rem;
+  color: transparent;
 }
 .bigCard-hidden {
   visibility: hidden;
@@ -53,7 +62,7 @@
   animation: fade-out 0.15s linear forwards, slide-up 0.15s linear;
 }
 .card-fadeOut.bigCard {
-  animation: fade-out 0.15s linear, slide-down 0.15s linear;
+  animation: fade-out 0.3s linear, slide-down 0.3s linear forwards;
 }
 @keyframes fade-out {
   0% {
@@ -101,6 +110,7 @@
     translate: 0 -2rem;
   }
 }
+
 .bigCard.card-flipOver {
   animation: flip-over 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
 }
@@ -110,22 +120,49 @@
   }
   74% {
     background: var(--clr-1);
-    color: transparent;
-    text-decoration: none;
   }
   75% {
     transform: scaleX(0);
     background: var(--clr-3);
+  }
+  100% {
+    transform: scaleX(1);
+    background: var(--clr-3);
+  }
+}
+.card-flipOver .bigCard-phrase {
+  animation: phrase-forward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}
+@keyframes phrase-forward {
+  74% {
+    color: transparent;
+    text-decoration: none;
+  }
+  75% {
     color: white;
     text-decoration: underline;
     text-decoration-color: var(--clr-2-dark);
   }
   100% {
-    transform: scaleX(1);
-    background: var(--clr-3);
     color: white;
     text-decoration: underline;
     text-decoration-color: var(--clr-2-dark);
+  }
+}
+.card-flipOver .bigCard-instructions {
+  animation: instructions-forward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95)
+    forwards;
+}
+@keyframes instructions-forward {
+  74% {
+    color: transparent;
+    text-decoration: none;
+  }
+  75% {
+    color: darkgrey;
+  }
+  100% {
+    color: darkgrey;
   }
 }
 .bigCard.card-flipBack {
@@ -135,26 +172,53 @@
   0% {
     transform: scaleX(1);
     background: var(--clr-3);
-    color: white;
-    text-decoration: underline;
-    text-decoration-color: var(--clr-2-dark);
   }
   24% {
     background: var(--clr-3);
-    color: white;
-    text-decoration: underline;
-    text-decoration-color: var(--clr-2-dark);
   }
   25% {
     transform: scaleX(0);
     background: var(--clr-1);
-    color: transparent;
-    text-decoration: none;
   }
   50% {
     transform: scaleX(1);
   }
   100% {
     transform: scaleX(1);
+  }
+}
+.card-flipBack .bigCard-phrase {
+  animation: phrase-backward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+@keyframes phrase-backward {
+  0% {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
+  }
+  24% {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-2-dark);
+  }
+  25% {
+    color: transparent;
+    text-decoration: none;
+  }
+}
+.card-flipBack .bigCard-instructions {
+  animation: instructions-backward 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95)
+    forwards;
+}
+@keyframes instructions-backward {
+  0% {
+    color: darkgrey;
+    text-decoration: none;
+  }
+  24% {
+    color: darkgrey;
+  }
+  25% {
+    color: transparent;
   }
 }

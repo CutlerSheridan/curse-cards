@@ -14,21 +14,20 @@ const Card = (props) => {
         return 'card-unseen';
     }
   })();
-  const wordsArray = props.text.split(' ');
-  const longestWord = wordsArray.reduce((x, y) => {
-    if (x.length > y.length) {
-      return x;
+  const cardText = (() => {
+    if (otherClasses) {
+      return (
+        <>
+          <div className="bigCard-phrase">{props.text}</div>
+          <div className="bigCard-instructions">(tap when finished)</div>
+        </>
+      );
     }
-    return y;
-  }, '');
+    return <></>;
+  })();
+
   return (
-    <div
-      className={`card ${otherClasses} ${isCardSeenClass} ${
-        longestWord.length > 12 ? 'bigCard-smallerText' : ''
-      }`}
-    >
-      <div>{otherClasses ? props.text : ''}</div>
-    </div>
+    <div className={`card ${otherClasses} ${isCardSeenClass}`}>{cardText}</div>
   );
 };
 
