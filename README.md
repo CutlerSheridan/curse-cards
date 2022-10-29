@@ -6,7 +6,6 @@
 
 #### TODO NEXT
 
-- insert words to use
 - test it on phone sizes
 
 #### TODO LATER
@@ -25,6 +24,11 @@
 - add credit
 
 #### DONE
+
+_1.0.0_
+
+- insert words to use
+- add gh-pages deployment protocols
 
 _0.7.1_
 
