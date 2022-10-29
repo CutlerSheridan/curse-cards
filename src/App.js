@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Card from './components/Card';
 import BigCard from './components/BigCard';
+import NamesForm from './components/NamesForm';
 
 const App = () => {
   const phrases = [
@@ -17,7 +18,18 @@ const App = () => {
     }
     return defaultValue;
   };
-  const [deck, setDeck] = useState(useLocalStorage('deck', phrases));
+  const shuffleArray = (arr) => {
+    const arrCopy = [...arr];
+    const shuffledArray = [];
+    while (arrCopy.length >= 1) {
+      const randomIndex = Math.floor(Math.random() * arrCopy.length);
+      shuffledArray.push(...arrCopy.splice(randomIndex, 1));
+    }
+    return shuffledArray;
+  };
+  const [deck, setDeck] = useState(
+    useLocalStorage('deck', shuffleArray(phrases))
+  );
 
   const [numOfPlayers, setNumOfPlayers] = useState(
     useLocalStorage('numOfPlayers', 5)
@@ -49,7 +61,8 @@ const App = () => {
   useEffect(() => {
     if (deck.length === 0) {
       const deckCopy = [];
-      phrases.forEach((phrase) => deckCopy.push(phrase));
+      const shuffledPhrases = shuffleArray(phrases);
+      shuffledPhrases.forEach((phrase) => deckCopy.push(phrase));
       setDeck(deckCopy);
     }
   }, [deck]);
@@ -117,15 +130,7 @@ const App = () => {
       return 0;
     });
   };
-  const shuffleArray = (arr) => {
-    const arrCopy = [...arr];
-    const shuffledArray = [];
-    while (arrCopy.length >= 1) {
-      const randomIndex = Math.floor(Math.random() * arrCopy.length);
-      shuffledArray.push(...arrCopy.splice(randomIndex, 1));
-    }
-    return shuffledArray;
-  };
+
   const drawCard = () => {
     document
       .querySelector('.gameControl-draw')
@@ -256,6 +261,9 @@ const App = () => {
         <div className="currentPlayer">{nameText}</div>
         <button className="gameControl infoControl-names">Player names</button>
       </div>
+
+      <NamesForm playerNames={playerNames}></NamesForm>
+
       <div className="gameCenter-container">
         <button
           className={`gameControl gameControl-draw ${

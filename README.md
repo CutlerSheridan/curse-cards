@@ -6,13 +6,13 @@
 
 #### TODO NEXT
 
+- add ability to change player names
+
 #### TODO LATER
 
 ##### Features
 
 - ? add ability to reset deck
-- ? add ability to change player names
-- ? add ability to shuffle deck
 - ? add pop-up rules
 - ? add timer
 
@@ -25,6 +25,12 @@
 - add credit
 
 #### DONE
+
+_0.6.0_
+
+- shuffle deck upon launch
+- shuffle deck upon repopulating deck
+- start working on Names form
 
 _0.5.0_
 

@@ -1,0 +1,19 @@
+.namesForm-container {
+  position: absolute;
+  height: calc(100vh - 5rem);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* border: 1px solid green; */
+  background: rgb(22, 22, 22, 0.5);
+}
+.namesForm {
+  padding: 2rem;
+  height: 80%;
+  width: 75%;
+  /* border: 1px solid pink; */
+  border-radius: 0.5rem;
+  background: var(--clr-3);
+}
