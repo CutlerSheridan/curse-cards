@@ -75,7 +75,7 @@ h1 {
 }
 .currentPlayer {
   height: 7rem;
-  width: 17rem;
+  /* width: 17rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +100,7 @@ h1 {
   }
   .currentPlayer {
     font-size: 4rem;
-    width: 19rem;
+    /* width: 19rem; */
   }
 }
 @media only screen and (min-width: 750px) {

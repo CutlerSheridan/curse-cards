@@ -60,10 +60,7 @@ const App = () => {
 
   useEffect(() => {
     if (deck.length === 0) {
-      const deckCopy = [];
-      const shuffledPhrases = shuffleArray(phrases);
-      shuffledPhrases.forEach((phrase) => deckCopy.push(phrase));
-      setDeck(deckCopy);
+      shuffleDeck();
     }
   }, [deck]);
   useEffect(() => {
@@ -222,6 +219,12 @@ const App = () => {
     const hand = shuffleHand();
     setCurrentHand(hand);
   };
+  const shuffleDeck = () => {
+    const deckCopy = [];
+    const shuffledPhrases = shuffleArray(phrases);
+    shuffledPhrases.forEach((phrase) => deckCopy.push(phrase));
+    setDeck(deckCopy);
+  };
 
   const bigCardText =
     currentPlayer < numOfPlayers
@@ -231,6 +234,26 @@ const App = () => {
     currentPlayer < playerNames.length
       ? `${playerNames[currentPlayer]}'s turn`
       : 'Final stage';
+
+  const toggleNamesForm = () => {
+    const namesForm = document.querySelector('.namesForm-container');
+    namesForm.classList.toggle('namesForm-hidden');
+  };
+  const handleNameChange = (e, nameIndex) => {
+    const newName = e.target.value;
+    setPlayerNames((prevNamesArr) => {
+      const namesCopy = [...prevNamesArr];
+      namesCopy.splice(nameIndex, 1, newName);
+      return namesCopy;
+    });
+  };
+  const resetNames = () => {
+    const newNames = [];
+    for (let i = 0; i < numOfPlayers; i++) {
+      newNames.push(`Player ${i + 1}`);
+    }
+    setPlayerNames(newNames);
+  };
 
   return (
     <div className="content-container">
@@ -259,10 +282,20 @@ const App = () => {
           </div>
         </div>
         <div className="currentPlayer">{nameText}</div>
-        <button className="gameControl infoControl-names">Player names</button>
+        <button
+          className="gameControl infoControl-names"
+          onClick={toggleNamesForm}
+        >
+          Player names
+        </button>
       </div>
 
-      <NamesForm playerNames={playerNames}></NamesForm>
+      <NamesForm
+        playerNames={playerNames}
+        handleChange={handleNameChange}
+        resetNames={resetNames}
+        toggleForm={toggleNamesForm}
+      ></NamesForm>
 
       <div className="gameCenter-container">
         <button
@@ -301,32 +334,9 @@ const App = () => {
         >
           New Round
         </button>
-        <button className="gameControl gameControl-small">Show rules</button>
-        {/* <button
-          className="gameControl gameControl-small"
-          onClick={() =>
-            console.log(JSON.parse(localStorage.getItem('storedStates')))
-          }
-        >
-          Log storage
+        <button className="gameControl gameControl-small" onClick={shuffleDeck}>
+          Shuffle deck
         </button>
-        <button
-          className="gameControl gameControl-small"
-          onClick={() => localStorage.clear()}
-        >
-          Clear localStorage
-        </button>
-        <button
-          className="gameControl gameControl-small"
-          onClick={() => {
-            console.log(deck);
-            console.log('num of players' + numOfPlayers);
-            console.log(currentHand);
-            console.log(playerNames);
-          }}
-        >
-          log states
-        </button> */}
       </div>
     </div>
   );

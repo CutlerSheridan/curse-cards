@@ -6,13 +6,13 @@
 
 #### TODO NEXT
 
-- add ability to change player names
+- insert words to use
+- test it on phone sizes
 
 #### TODO LATER
 
 ##### Features
 
-- ? add ability to reset deck
 - ? add pop-up rules
 - ? add timer
 
@@ -25,6 +25,13 @@
 - add credit
 
 #### DONE
+
+_0.7.0_
+
+- add ability to change player names
+- style name change form
+- change 'Show rules' to 'Shuffle deck'
+- add ability to reset and shuffle deck
 
 _0.6.0_
 

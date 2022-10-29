@@ -6,14 +6,47 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  /* border: 1px solid green; */
+  font-family: 'Luminari';
   background: rgb(22, 22, 22, 0.5);
 }
 .namesForm {
   padding: 2rem;
   height: 80%;
   width: 75%;
-  /* border: 1px solid pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border: 10px solid var(--clr-2-dark);
   border-radius: 0.5rem;
   background: var(--clr-3);
+}
+.namesForm-hidden {
+  visibility: hidden;
+}
+
+.namesForm-heading {
+  margin-bottom: 2rem;
+}
+.namesForm-item {
+  margin: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: 'Fondamento';
+}
+.namesForm-item > label {
+  font-size: 1.8rem;
+}
+.namesForm-item > input {
+  font-size: 2rem;
+}
+
+.gameControl-form {
+  margin: 4rem 1rem;
+  background: var(--clr-4);
+}
+.gameControl-form:active {
+  background: var(--clr-1);
 }

@@ -2,7 +2,6 @@ import '../styles/Card.css';
 
 const Card = (props) => {
   const { currentPlayer, cardIndex, bigClasses, handleClick } = props;
-  // const bigCardClass = props.isBig ? 'bigCard' : '';
   const isCardSeenClass = (() => {
     if (props.text !== '') {
       switch (true) {
