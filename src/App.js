@@ -202,9 +202,11 @@ const App = () => {
             .querySelector('.gameControl-draw')
             .classList.remove('gameControl-disabled');
           setIsBigCardShowing(false);
-          if (currentPlayer < numOfPlayers) {
+          if (currentPlayer <= numOfPlayers) {
             if (!startingNewRound) {
-              advanceToNextPlayer();
+              if (currentPlayer < numOfPlayers) {
+                advanceToNextPlayer();
+              }
             } else {
               startNewRound();
             }

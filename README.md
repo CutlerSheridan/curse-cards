@@ -26,6 +26,11 @@
 
 #### DONE
 
+_0.7.1_
+
+- fix revealed big card in final stage going back down but remaining in final stage if clicking "new round"
+- fix replacing big card in final stage going to first player again
+
 _0.7.0_
 
 - add ability to change player names
