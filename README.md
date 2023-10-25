@@ -28,6 +28,10 @@ Play it with your friends at a Halloween party or any party that could use some 
 
 #### DONE
 
+_1.0.2_
+
+- improve rules
+
 _1.0.1_
 
 - fix player names form on mobile so it scrolls

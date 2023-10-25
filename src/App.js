@@ -355,6 +355,10 @@ const App = () => {
                 Over the course of that 20 minutes, the cursed player must
                 attempt to get another player to say their word or phrase aloud
               </li>
+              <li>
+                Once the timer runs out, tap "Reveal" to display the curse word
+                or phrase again, then press "New Round" to start the next round
+              </li>
             </ul>
             <h3>Winners and Losers</h3>
             <ul>
@@ -363,6 +367,7 @@ const App = () => {
                 soul who spoke the cursed phrase must take a penalty (like a
                 shot)
               </li>
+              <li>If the cursed player fails, they take a penalty</li>
               <li>
                 If the cursed player is correctly accused of being cursed, they
                 must take a penalty
