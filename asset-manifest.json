@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/curse-cards/static/css/main.22c073e7.css",
-    "main.js": "/curse-cards/static/js/main.3bf68c44.js",
+    "main.js": "/curse-cards/static/js/main.cccdb1a0.js",
     "static/media/Luminari-Regular.ttf": "/curse-cards/static/media/Luminari-Regular.bf4601ff4e7dd8fe5ea7.ttf",
     "index.html": "/curse-cards/index.html",
     "main.22c073e7.css.map": "/curse-cards/static/css/main.22c073e7.css.map",
-    "main.3bf68c44.js.map": "/curse-cards/static/js/main.3bf68c44.js.map"
+    "main.cccdb1a0.js.map": "/curse-cards/static/js/main.cccdb1a0.js.map"
   },
   "entrypoints": [
     "static/css/main.22c073e7.css",
-    "static/js/main.3bf68c44.js"
+    "static/js/main.cccdb1a0.js"
   ]
 }
