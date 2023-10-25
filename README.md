@@ -1,8 +1,8 @@
 # Curse Cards
 
-## [PROJECT LOGLINE]
+## A spooky game for the best holiday
 
-[A MORE DETAIED DESCRIPTION OF THE PROJECT, IF NECESSARY]
+Play it with your friends at a Halloween party or any party that could use some spooky vibes! Made this in a few days for a Halloween party I was hosting, still has some bugs to work out.
 
 #### TODO NEXT
 
@@ -12,10 +12,13 @@
 
 ##### Features
 
-- ? add pop-up rules
 - ? add timer
 
 ##### Behavior
+
+- fix bug where pressing "new round" during final stage starts same round over
+- after adding new players, disable 'draw' button until 'new round' is pressed (unless they go back to the same number of players)
+- fix whatever bug is causing changing player count to crash when in Chromee
 
 ##### Style
 
@@ -24,6 +27,12 @@
 - add credit
 
 #### DONE
+
+_1.0.1_
+
+- fix player names form on mobile so it scrolls
+- fix display of player name 'submit' and 'reset' buttons
+- add pop-up rules
 
 _1.0.0_
 

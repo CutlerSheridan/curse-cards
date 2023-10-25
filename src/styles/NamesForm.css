@@ -15,12 +15,14 @@
   width: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 4rem;
   border: 10px solid var(--clr-2-dark);
   border-radius: 0.5rem;
   background: var(--clr-3);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .namesForm-hidden {
   visibility: hidden;
@@ -43,8 +45,13 @@
   font-size: 2rem;
 }
 
+.formControls {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
 .gameControl-form {
-  margin: 4rem 1rem;
   background: var(--clr-4);
 }
 .gameControl-form:active {

@@ -267,6 +267,10 @@ const App = () => {
     const namesForm = document.querySelector('.namesForm-container');
     namesForm.classList.toggle('namesForm-hidden');
   };
+  const toggleRules = () => {
+    const rulesElement = document.querySelector('.rules-outerContainer');
+    rulesElement.classList.toggle('rules-outerContainer-hidden');
+  };
   const handleNameChange = (e, nameIndex) => {
     const newName = e.target.value;
     setPlayerNames((prevNamesArr) => {
@@ -317,7 +321,77 @@ const App = () => {
           Player names
         </button>
       </div>
+      <button className="gameControl infoControl-rules" onClick={toggleRules}>
+        Rules
+      </button>
 
+      <div className="rules-outerContainer rules-outerContainer-hidden">
+        <div className="rules-midContainer">
+          <button
+            type="button"
+            className="gameControl rules-exitButton"
+            onClick={toggleRules}
+          >
+            X
+          </button>
+          <div className="rules-innerContainer">
+            <h2 className="rules-heading">Rules</h2>
+            <h3>Gameplay</h3>
+            <ul>
+              <li>
+                Set the number of players and give everyone a name, then press
+                "Reset Round" or "New Round"
+              </li>
+              <li>
+                The current player's turn will be displayed. That player should
+                take the device, secretly draw their card, tap their card again
+                to dismiss it, then pass the device to the next player
+              </li>
+              <li>If the card you draw does not read "Safe," you are cursed</li>
+              <li>
+                Once everyone has drawn their card, set a timer for 20 minutes
+              </li>
+              <li>
+                Over the course of that 20 minutes, the cursed player must
+                attempt to get another player to say their word or phrase aloud
+              </li>
+            </ul>
+            <h3>Winners and Losers</h3>
+            <ul>
+              <li>
+                If the cursed player succeeds, their curse is lifted. The poor
+                soul who spoke the cursed phrase must take a penalty (like a
+                shot)
+              </li>
+              <li>
+                If the cursed player is correctly accused of being cursed, they
+                must take a penalty
+              </li>
+              <li>
+                If the cursed player is incorrectly accused of being cursed, the
+                accuser must take a penalty. You may decide if you want to
+                finish the round or not
+              </li>
+            </ul>
+            <h3>NOTES</h3>
+            <ul>
+              <li>I made this game in a few days, so there are still bugs</li>
+              <li>
+                If the game crashes, refresh the page. It should remember which
+                words you've already played
+              </li>
+              <li>
+                If, at any point, you change the number of players, always press
+                "Reset Round" or "New Round" before you resume play
+              </li>
+              <li>
+                If you start a round and realize the word is the same as the
+                previous round, just press "New Round" and you should be good
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <NamesForm
         playerNames={playerNames}
         handleChange={handleNameChange}
