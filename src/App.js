@@ -413,7 +413,14 @@ const App = () => {
         >
           {currentPlayer < numOfPlayers ? 'Draw' : 'Reveal'}
         </button>
-        <BigCard handleClick={replaceCard} text={bigCardText}></BigCard>
+        <BigCard
+          handleClick={replaceCard}
+          text={
+            currentPlayer < numOfPlayers
+              ? currentHand[currentPlayer]
+              : currentHand.find((x) => x !== 'safe')
+          }
+        ></BigCard>
       </div>
       <div className="hand-container">
         {currentHand.map((x, index) => (

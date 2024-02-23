@@ -28,6 +28,11 @@ Play it with your friends at a Halloween party or any party that could use some 
 
 #### DONE
 
+_1.0.3_
+
+- fix player count change causing app to crash
+- fix player names overlay not reaching top and bottom of page
+
 _1.0.2_
 
 - improve rules
